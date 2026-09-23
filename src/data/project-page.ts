@@ -993,6 +993,27 @@ export const experimentGroups: ExperimentGroup[] = [
         "alt": "InternW0 inserting the flask stopper and operating the stirrer"
       }
     ]
+  },
+  {
+    "id": "quantitative-pipetting",
+    "title": "Quantitative Pipetting",
+    "description": "A dexterous hand coordinates pipette pickup, tip attachment, aspiration, dispensing, and tip ejection with force-aware control.",
+    "columns": 1,
+    "videos": [
+      {
+        "id": "pipetting-video",
+        "label": "Quantitative Pipetting",
+        "condition": "Demo",
+        "subject": "Pipette",
+        "target": "Prescribed liquid volume",
+        "src": "/videos/demos/quantitative-pipetting.mp4",
+        "poster": "/videos/demos/quantitative-pipetting.jpg",
+        "type": "video/mp4",
+        "width": 1280,
+        "height": 720,
+        "alt": "InternW0 using a dexterous hand for pipette pickup, tip attachment, liquid transfer, and tip ejection"
+      }
+    ]
   }
 ];
 

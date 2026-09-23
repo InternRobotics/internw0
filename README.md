@@ -2,7 +2,7 @@
 
 InternW0 模型发布主页。保留 A15 模板的蓝色主题、深浅色切换、章节顺序、表格展开和视频网格。
 模型描述、数据配方、仿真与实机结果依据 `W0___Tech_Report (5).pdf`，原始图片来自
-`W0___Tech_Report (3)/figs/`。定量移液暂无视频素材，页面不显示视频占位；报告中的实验介绍与评测结果仍保留。
+`W0___Tech_Report (3)/figs/`。五类实机任务均已接入演示视频，包括定量移液。
 首屏署名为 Physical Intelligence Team, Shanghai AI Laboratory。
 机构 Logo 和 Github、Huggingface、ModelScope 图标保存在本项目的 `public/images/` 中，
 均为独立文件，运行和部署不依赖其他项目。
@@ -17,12 +17,14 @@ InternW0 模型发布主页。保留 A15 模板的蓝色主题、深浅色切换
 | Sort Tubes | 飞书20260923-175849.mp4 | `public/videos/demos/sort-tubes.mp4` | 47 秒 |
 | MoF / Flask placement | A004C048_260910WY.mp4 | `public/videos/demos/A004C048_260910WY.mp4` | 53 秒 |
 | MoF / Stopper insertion & stirring | A004C049_260910YW.mp4 | `public/videos/demos/A004C049_260910YW.mp4` | 59 秒 |
+| Quantitative Pipetting | 飞书20260923-194939.qt | `public/videos/demos/quantitative-pipetting.mp4` | 45 秒 |
 
-视频从工作区的 `Videos/` 导入，保留原始素材不变，网页版本为 1080p、H.264/AAC，
-保留来源帧率：原有三个视频为 50 fps，新加三个视频为 25 fps。
-并启用 MP4 faststart、附带 JPEG 封面。网页运行仅依赖本项目的 `public/`，不读取外部素材目录。
-主视频点击播放；五个 Demo 分为日常／工业操作和 MoF 两组，静音自动循环，并保留播放控件。
-桌面端分别为三列、两列，手机端改为单列。
+视频从工作区的 `Videos/` 导入，保留原始素材不变，网页版本均为 H.264/AAC。
+原有三个视频为 1080p、50 fps，日常／工业操作三个视频为 1080p、25 fps。
+定量移液保留原始 720p、30 fps，从 QuickTime 无损封装为 MP4，未重新编码或裁剪。
+所有视频启用 MP4 faststart、附带 JPEG 封面。网页运行仅依赖本项目的 `public/`，不读取外部素材目录。
+主视频点击播放；六个 Demo 分为日常／工业操作、MoF 和定量移液三组，静音自动循环，并保留播放控件。
+桌面端分别为三列、两列、单列居中，手机端均为单列。
 
 ## 报告内容与图片来源
 
@@ -87,7 +89,7 @@ npm run dev
 | `figures` | 总览图、数据图、实验图及训练／推理架构图 |
 | `introVideo` | 介绍视频及封面 |
 | `dataTables`、`benchmarkResults` | 数据来源表及评测汇总、对比结果 |
-| `realWorldTasks`、`experimentGroups` | 实验说明和两组视频网格 |
+| `realWorldTasks`、`experimentGroups` | 实验说明和三组视频网格 |
 | `realWorldResults`、`subtaskResults` | 实机结果总表，以及可展开的 MoF／移液子任务结果 |
 | `bibtex` | 引用内容 |
 
@@ -114,8 +116,8 @@ export const introVideo: VideoAsset = {
 };
 ```
 
-日常／工业操作组和 MoF 组已经接入视频。后续获得定量移液素材时，可在
-`experimentGroups` 中新增对应分组，并填写视频和封面路径。
+日常／工业操作、MoF 和定量移液三组均已接入视频。后续替换素材时，在
+`experimentGroups` 中修改对应视频和封面路径。
 
 评测表已填入报告结果；更新 `benchmarkResults` 时保留每组唯一 `id`，
 并保证每行 `cells` 数量与 `detailColumns` 数量一致。
