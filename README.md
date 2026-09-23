@@ -119,18 +119,36 @@ npm run preview
 
 ## 发布到 InternRobotics 的 GitHub Pages
 
-目标仓库：`InternRobotics/internw0.github.io`。
-目标网址：https://internrobotics.github.io/internw0.github.io/ 。
+目标仓库：`InternRobotics/internw0`。
+目标网址：https://internrobotics.github.io/internw0/ 。
 
 已提供 `.github/workflows/deploy-pages.yml`：推送到 `main` 后，使用 Node.js 22 和
 `package.json` 指定的 pnpm 版本安装依赖、检查代码、构建并发布 `out/`。
-构建时自动设置 `NEXT_PUBLIC_BASE_PATH=/internw0.github.io`，使样式、图片和视频使用正确的子路径。
+构建时根据 GitHub 仓库名自动设置 `NEXT_PUBLIC_BASE_PATH`；仓库名为 `internw0` 时，
+路径为 `/internw0`，使样式、图片和视频使用正确的子路径。
 本地 `npm run dev` 不需要设置这个变量。
+
+### 已有仓库改为简短网址
+
+如果已创建 `InternRobotics/internw0.github.io`，在该仓库 Settings → General 中，
+将 Repository name 改为 `internw0` 并点击 Rename。此操作需要仓库 Admin 或组织 Owner 权限。
+重命名后在本项目目录更新远程地址，并提交本次工作流和文档修改：
+
+```bash
+git remote set-url origin git@github.com:InternRobotics/internw0.git
+git add .github/workflows/deploy-pages.yml README.md
+git commit -m "Use repository name for GitHub Pages path"
+git push
+```
+
+确认新仓库的 Settings → Pages → Source 仍为 GitHub Actions，等待新部署成功。
+工作流会自动使用 `/internw0`。旧的 Pages 网址不会因仓库重命名而自动跳转，
+对外分享请使用新网址。本地文件夹名 `W0-Homepage-source` 不影响线上地址。
 
 ### 首次发布
 
 1. 在 https://github.com/new 新建仓库，Owner 选择 `InternRobotics`，
-   Repository name 填 `internw0.github.io`，选择 Public。
+   Repository name 填 `internw0`，选择 Public。
    为直接推送现有项目，保持仓库为空，不勾选初始化 README、.gitignore 或 License。
    如果不能选择组织或 Public，请组织管理员代建仓库，并授予你仓库管理权限。
 2. 在新仓库进入 Settings → Pages → Build and deployment，将 Source 设为 **GitHub Actions**。
@@ -143,7 +161,7 @@ cd /home/xue/A15_Homepage-source/W0-Homepage-source
 git init -b main
 git add .
 git commit -m "Create InternW0 homepage"
-git remote add origin https://github.com/InternRobotics/internw0.github.io.git
+git remote add origin git@github.com:InternRobotics/internw0.git
 git push -u origin main
 ```
 
@@ -171,12 +189,12 @@ git push
 如需在本地生成与线上路径一致的静态文件：
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/internw0.github.io npm run build
+NEXT_PUBLIC_BASE_PATH=/internw0 npm run build
 ```
 
-上述构建产物的资源路径包含 `/internw0.github.io`，预览时需将 `out/` 挂载到该子路径。
+上述构建产物的资源路径包含 `/internw0`，预览时需将 `out/` 挂载到该子路径。
 如需使用前面的 `npm run preview`，先执行不带该环境变量的 `npm run build`。
-修改仓库名或部署子路径时，同步修改工作流中的 `NEXT_PUBLIC_BASE_PATH` 并重新发布。
+重命名项目仓库后重新运行工作流即可使用新路径；部署到自定义路径时再调整工作流的 `NEXT_PUBLIC_BASE_PATH`。
 该项目为静态导出，不使用 `next start` 启动生产服务。
 
 官方说明：[GitHub Pages 项目站点](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、

@@ -42,7 +42,7 @@ jobs:
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_BASE_PATH: /internw0.github.io
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           NEXT_TELEMETRY_DISABLED: "1"
         run: pnpm run build
 
