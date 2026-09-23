@@ -13,8 +13,10 @@ import {
   experimentGroups,
   figures,
   introVideo,
+  realWorldResults,
   realWorldTasks,
   sections,
+  subtaskResults,
   type ExperimentGroup,
   type TableRow,
 } from "@/data/project-page";
@@ -109,13 +111,23 @@ export function BenchmarksSection() {
       <FigureCard caption={sections.benchmarks.caption}>
         <ExpandableResultsTable results={benchmarkResults} />
       </FigureCard>
+      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <FigureCard caption={sections.benchmarks.ablationCaption}>
+          <h3 className="figure-title">{sections.benchmarks.ablationTitle}</h3>
+          <ProjectImage {...figures.egoAblation} className="report-result-figure" />
+        </FigureCard>
+        <FigureCard caption={sections.benchmarks.efficiencyCaption}>
+          <h3 className="figure-title">{sections.benchmarks.efficiencyTitle}</h3>
+          <ProjectImage {...figures.efficiency} className="report-result-figure" />
+        </FigureCard>
+      </div>
     </SectionShell>
   );
 }
 
 function ExperimentVideoMatrix({ group }: { group: ExperimentGroup }) {
   return (
-    <div className="realworld-video-showcase">
+    <div className="realworld-video-showcase" id={group.id}>
       <div className="realworld-video-header">
         <h3>{group.title}</h3>
         <p className="realworld-video-description">{group.description}</p>
@@ -183,11 +195,28 @@ export function ExperimentsSection() {
         >
           <ProjectImage {...figures.realWorldTasks} />
         </FigureCard>
+        <FigureCard caption={realWorldResults.caption}>
+          <h3 className="figure-title">Real-world results</h3>
+          <ResultsTable columns={realWorldResults.columns} rows={realWorldResults.rows} />
+        </FigureCard>
         {experimentGroups.map((group) => (
           <FigureCard key={group.id}>
             <ExperimentVideoMatrix group={group} />
           </FigureCard>
         ))}
+        {subtaskResults.map((table) => (
+          <details className="subtask-results" key={table.id}>
+            <summary>{table.title}</summary>
+            <div className="subtask-results-content">
+              <ResultsTable columns={table.columns} rows={table.rows} />
+              <p>{table.caption}</p>
+            </div>
+          </details>
+        ))}
+        <FigureCard caption={sections.experiments.comparisonCaption}>
+          <h3 className="figure-title">Contact-aware manipulation</h3>
+          <ProjectImage {...figures.qualitativeComparison} />
+        </FigureCard>
       </div>
     </SectionShell>
   );

@@ -31,7 +31,7 @@ export function ModelPreview() {
           </button>
         </div>
       </div>
-      <div id="model-diagram">
+      <div className="model-preview-figure" id="model-diagram">
         <ProjectImage {...(training ? figures.modelTraining : figures.modelInference)} />
       </div>
       <p aria-live="polite" className="tf-blurb">

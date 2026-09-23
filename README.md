@@ -1,7 +1,8 @@
 # InternW0 Homepage
 
-InternW0 模型发布主页占位版本。保留模板的蓝色主题、深浅色切换、章节顺序、表格展开和视频网格。
-技术描述、评测结果及引用信息使用 `xxx`；未提供的研究图片和视频使用占位框。
+InternW0 模型发布主页。保留 A15 模板的蓝色主题、深浅色切换、章节顺序、表格展开和视频网格。
+模型描述、数据配方、仿真与实机结果依据 `W0___Tech_Report (5).pdf`，原始图片来自
+`W0___Tech_Report (3)/figs/`。定量移液暂无视频素材，页面不显示视频占位；报告中的实验介绍与评测结果仍保留。
 首屏署名为 Physical Intelligence Team, Shanghai AI Laboratory。
 机构 Logo 和 Github、Huggingface、ModelScope 图标保存在本项目的 `public/images/` 中，
 均为独立文件，运行和部署不依赖其他项目。
@@ -11,12 +12,53 @@ InternW0 模型发布主页占位版本。保留模板的蓝色主题、深浅�
 | 页面位置 | 原始素材 | 网页文件 | 时长 |
 | --- | --- | --- | --- |
 | Introduction 主视频 | A004C009_260910XY.mp4 | `public/videos/intro.mp4` | 2 分 36 秒 |
-| Experiments / Demo 1 | A004C048_260910WY.mp4 | `public/videos/demos/A004C048_260910WY.mp4` | 53 秒 |
-| Experiments / Demo 2 | A004C049_260910YW.mp4 | `public/videos/demos/A004C049_260910YW.mp4` | 59 秒 |
+| Make Sandwich | 飞书20260923-175833.mp4 | `public/videos/demos/make-sandwich.mp4` | 1 分 51 秒 |
+| Pick Industrial Parts | 飞书20260923-175844.mp4 | `public/videos/demos/pick-industrial-parts.mp4` | 45 秒 |
+| Sort Tubes | 飞书20260923-175849.mp4 | `public/videos/demos/sort-tubes.mp4` | 47 秒 |
+| MoF / Flask placement | A004C048_260910WY.mp4 | `public/videos/demos/A004C048_260910WY.mp4` | 53 秒 |
+| MoF / Stopper insertion & stirring | A004C049_260910YW.mp4 | `public/videos/demos/A004C049_260910YW.mp4` | 59 秒 |
 
-视频从工作区的 `Videos/` 导入，保留原始素材不变，网页版本为 1080p、50 fps、H.264/AAC，
+视频从工作区的 `Videos/` 导入，保留原始素材不变，网页版本为 1080p、H.264/AAC，
+保留来源帧率：原有三个视频为 50 fps，新加三个视频为 25 fps。
 并启用 MP4 faststart、附带 JPEG 封面。网页运行仅依赖本项目的 `public/`，不读取外部素材目录。
-主视频点击播放；两个 Demo 并排展示、静音自动循环，并保留播放控件。
+主视频点击播放；五个 Demo 分为日常／工业操作和 MoF 两组，静音自动循环，并保留播放控件。
+桌面端分别为三列、两列，手机端改为单列。
+
+## 报告内容与图片来源
+
+| 页面内容 | 最新报告依据 |
+| --- | --- |
+| 标题、简介、训练／推理 | 标题、摘要和第 2 节 |
+| 数据来源与 EgoLab | 第 3 节、表 1、图 3 |
+| LIBERO、RoboTwin Full、Clean2Random | 第 4 节、表 2–4 |
+| 小规模数据消融 | 第 4.2.3 节、图 4；约 50 小时机器人数据加约 50 小时 EgoLab |
+| 实机结果和子任务详情 | 第 5 节、表 5–7 |
+| 动作更新效率 | 第 6 节、图 7；RTX 5090D，关键路径不含异步视频预测 |
+
+报告只提供 LIBERO 和 RoboTwin 两类仿真基准，网页不再沿用 A15 的其他评测占位行。
+数据区的 InternVLA-M1 多模态共训占位表改为报告明确提供的 EgoLab 视频监督表。
+实机结果中，Make Sandwich 为整段任务成功率，零件与试管为对象级成功率，
+MoF 与定量移液为按顺序完成子任务的进度率，不能混写为完整任务成功率。
+
+所有报告图片均从原始 PDF 渲染为 PNG，位于 `public/images/report/`，不依赖源材料目录。
+
+| 网页图片 | 来源 |
+| --- | --- |
+| `overview.png` | `teaser.pdf` 上部三个面板：数据、模型、仿真结果 |
+| `architecture.png` | `w0_model_arch.pdf` |
+| `asynchronous-inference.png` | `teaser.pdf` 中间的慢预测／快动作面板 |
+| `egolab.png` | `egolab.pdf` |
+| `real-world-tasks.png` | `real_world_tasks.pdf`，去除页边空白 |
+| `efficiency.png` | `latency_efficiency.pdf` |
+| `egolab-ablation.png` | `ego_ablation.pdf` |
+| `qualitative-comparison.png` | `failure_cases.pdf`，去除页边空白 |
+
+源总览图的实机柱状图将 π0.5 的 MoF 数值写为 51.6，而最新报告表 5、表 6 和正文为 50.2，
+且图标题将成功率和进度率统一标作成功率。因此首页不采用该图下方的实机结果面板；
+实机结果在网页表格中按最新报告展示，源 PDF 本身未修改。
+
+Paper 按用户要求继续禁用，未把技术报告 PDF 放入公开下载目录。
+Github、Huggingface 和 ModelScope 的模型资源链接仍待提供；BibTeX 已填入报告标题、团队和项目页。
 
 ## 本地运行
 
@@ -45,7 +87,8 @@ npm run dev
 | `figures` | 总览图、数据图、实验图及训练／推理架构图 |
 | `introVideo` | 介绍视频及封面 |
 | `dataTables`、`benchmarkResults` | 数据来源表及评测汇总、对比结果 |
-| `realWorldTasks`、`experimentGroups` | 实验说明和三组视频网格 |
+| `realWorldTasks`、`experimentGroups` | 实验说明和两组视频网格 |
+| `realWorldResults`、`subtaskResults` | 实机结果总表，以及可展开的 MoF／移液子任务结果 |
 | `bibtex` | 引用内容 |
 
 素材放入 `public/images/`、`public/videos/`、`public/paper/`。
@@ -71,28 +114,11 @@ export const introVideo: VideoAsset = {
 };
 ```
 
-首组实验视频已接入两个 Demo，其余组通过 `videoPlaceholders()` 生成占位。
-素材到齐后，将对应组的 `videos` 替换为对象数组，例如：
+日常／工业操作组和 MoF 组已经接入视频。后续获得定量移液素材时，可在
+`experimentGroups` 中新增对应分组，并填写视频和封面路径。
 
-```ts
-videos: [
-  {
-    id: "experiment-1-video-1",
-    condition: "xxx",
-    subject: "xxx",
-    target: "xxx",
-    src: "/videos/task-01.mp4",
-    poster: "/videos/task-01.jpg",
-    type: "video/mp4",
-    width: 1280,
-    height: 720,
-    alt: "InternW0 task demonstration",
-  },
-]
-```
-
-评测表目前使用生成的占位数组；补充结果时可将 `benchmarkResults` 改为 `BenchmarkResult[]` 对象数组，
-为每组设置唯一 `id`，并保证每行 `cells` 数量与 `detailColumns` 数量一致。
+评测表已填入报告结果；更新 `benchmarkResults` 时保留每组唯一 `id`，
+并保证每行 `cells` 数量与 `detailColumns` 数量一致。
 
 资源按钮的 `href: null` 表示禁用；填入真实网址或本地 PDF 路径后自动启用。
 BibTeX 保留 `#bibtex` 页面内跳转。不要在路径中手动加部署子路径，组件会统一调用 `assetPath()`。
@@ -169,8 +195,8 @@ git push -u origin main
    然后访问目标网址。也可以在该工作流页面点击 Run workflow，选择 `main` 手动发布。
 
 `.gitignore` 已排除 `node_modules/`、`.next/` 和 `out/`；GitHub Actions 会自行构建。
-上传素材使用本项目 `public/` 内的网页版本，三个视频均小于 Git 单文件 100 MiB 上限。
-其中主视频和 Demo 2 超过网页上传的 25 MiB 上限，因此使用上面的 Git 推送命令。
+上传素材使用本项目 `public/` 内的网页版本，六个视频均小于 Git 单文件 100 MiB 上限。
+其中主视频和 MoF 的第二个短视频超过网页上传的 25 MiB 上限，因此使用上面的 Git 推送命令。
 组织成员能否新建仓库取决于组织设置；配置 Pages 需要仓库的 Admin 或 Maintainer 权限。
 
 ### 后续更新

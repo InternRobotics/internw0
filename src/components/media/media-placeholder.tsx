@@ -29,7 +29,7 @@ export function MediaPlaceholder({
     >
       <div aria-hidden="true" className="media-placeholder-content">
         <Icon className="media-placeholder-icon" strokeWidth={1.25} />
-        <span>xxx</span>
+        <span>{kind === "video" ? "Video coming soon" : "Image coming soon"}</span>
       </div>
     </div>
   );
