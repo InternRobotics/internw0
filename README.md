@@ -11,18 +11,20 @@ InternW0 模型发布主页。保留 A15 模板的蓝色主题、深浅色切换
 
 | 页面位置 | 原始素材 | 网页文件 | 时长 |
 | --- | --- | --- | --- |
-| Introduction 主视频 | A004C009_260910XY.mp4 | `public/videos/intro.mp4` | 2 分 36 秒 |
-| Make Sandwich | 飞书20260923-175833.mp4 | `public/videos/demos/make-sandwich.mp4` | 1 分 51 秒 |
-| Pick Industrial Parts | 飞书20260923-175844.mp4 | `public/videos/demos/pick-industrial-parts.mp4` | 45 秒 |
-| Sort Tubes | 飞书20260923-175849.mp4 | `public/videos/demos/sort-tubes.mp4` | 47 秒 |
+| Introduction 主视频 | `-audio/飞书20260924-120843.mp4` | `public/videos/intro.mp4` | 53 秒 |
+| Make Sandwich | `-audio/1.mp4` | `public/videos/demos/make-sandwich.mp4` | 1 分 51 秒 |
+| Pick Industrial Parts | `-audio/2.mp4` | `public/videos/demos/pick-industrial-parts.mp4` | 45 秒 |
+| Sort Tubes | `-audio/3.mp4` | `public/videos/demos/sort-tubes.mp4` | 47 秒 |
 | MoF / Flask placement | A004C048_260910WY.mp4 | `public/videos/demos/A004C048_260910WY.mp4` | 53 秒 |
 | MoF / Stopper insertion & stirring | A004C049_260910YW.mp4 | `public/videos/demos/A004C049_260910YW.mp4` | 59 秒 |
 | Quantitative Pipetting | 飞书20260923-194939.qt | `public/videos/demos/quantitative-pipetting.mp4` | 45 秒 |
 
-视频从工作区的 `Videos/` 导入，保留原始素材不变，网页版本均为 H.264/AAC。
-原有三个视频为 1080p、50 fps，日常／工业操作三个视频为 1080p、25 fps。
+主视频和日常／工业操作三个视频从工作区的 `-audio/` 导入，其余素材来自 `Videos/`；原始素材保持不变。
+网页视频使用 H.264。主视频为 1080p、30 fps，保留 AAC 音轨；日常／工业操作三个视频为 1080p、25 fps，均无音轨。
+MoF 两段视频为 1080p、50 fps，保留原有音轨。
 定量移液保留原始 720p、30 fps，从 QuickTime 无损封装为 MP4，未重新编码或裁剪。
 所有视频启用 MP4 faststart、附带 JPEG 封面。网页运行仅依赖本项目的 `public/`，不读取外部素材目录。
+本次替换的四段视频及封面链接带有 `?v=20260924`，避免浏览器复用旧素材缓存。
 主视频点击播放；六个 Demo 分为日常／工业操作、MoF 和定量移液三组，静音自动循环，并保留播放控件。
 桌面端分别为三列、两列、单列居中，手机端均为单列。
 
