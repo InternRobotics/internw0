@@ -59,8 +59,9 @@ MoF 与定量移液为按顺序完成子任务的进度率，不能混写为完�
 且图标题将成功率和进度率统一标作成功率。因此首页不采用该图下方的实机结果面板；
 实机结果在网页表格中按最新报告展示，源 PDF 本身未修改。
 
-Paper 按用户要求继续禁用，未把技术报告 PDF 放入公开下载目录。
-Github、Huggingface 和 ModelScope 的模型资源链接仍待提供；BibTeX 已填入报告标题、团队和项目页。
+Paper 已启用并链接到 [arXiv:2609.27656](https://arxiv.org/abs/2609.27656)。
+BibTeX 使用 arXiv 导出的论文标题、完整作者列表、年份和预印本编号。
+Github、Huggingface 和 ModelScope 的模型资源链接仍待提供；本地技术报告 PDF 未放入公开下载目录。
 
 ## 本地运行
 

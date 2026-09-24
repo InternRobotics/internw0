@@ -1,5 +1,5 @@
 // Content: W0___Tech_Report (5).pdf. Figures: W0___Tech_Report (3)/figs.
-// All media live in this project's public directory. Release links remain disabled.
+// All media live in this project's public directory. Paper links to arXiv; model release links remain disabled.
 
 export type ImageAsset = {
   src: string | null;
@@ -99,7 +99,7 @@ export const teamLogos: (ImageAsset & { id: string })[] = [
 export const heroActions: { label: string; href: string | null }[] = [
   {
     "label": "Paper",
-    "href": null
+    "href": "https://arxiv.org/abs/2609.27656"
   },
   {
     "label": "Github",
@@ -1017,4 +1017,4 @@ export const experimentGroups: ExperimentGroup[] = [
   }
 ];
 
-export const bibtex = "@techreport{internw0,\n  title       = {InternW0: A Foundational Physical World Model for Efficient Real-World Interactions},\n  author      = {{Physical Intelligence Team, Shanghai AI Laboratory}},\n  institution = {Shanghai AI Laboratory},\n  year        = {2026},\n  url         = {https://internrobotics.github.io/internw0/}\n}";
+export const bibtex = "@misc{cai2026internw0foundationalphysicalworld,\n  title         = {InternW0: A Foundational Physical World Model for Efficient Real-World Interactions},\n  author        = {Jisong Cai and Yao Mu and Ganlin Yang and Zhe Cao and Zhangzheng Tu and Xing Gao\n                   and Kailin Li and Xinyu Zhan and Lixin Yang and Yangkun Zhu and Haoxiang Ma and Ming Zhou\n                   and Qiaojun Yu and Yufei Xue and Liqun He and Yifei Yao and Yifan Zhu and Long Ling\n                   and Bingqi Jiang and Haoyu Guo and Xueyue Zhu and Bowen Zhou and Bin Zhao\n                   and Tianfan Xue and Chunhua Shen and Weinan Zhang},\n  year          = {2026},\n  eprint        = {2609.27656},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.RO},\n  url           = {https://arxiv.org/abs/2609.27656}\n}";
