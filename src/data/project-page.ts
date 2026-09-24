@@ -1006,11 +1006,11 @@ export const experimentGroups: ExperimentGroup[] = [
         "condition": "Demo",
         "subject": "Pipette",
         "target": "Prescribed liquid volume",
-        "src": "/videos/demos/quantitative-pipetting.mp4",
-        "poster": "/videos/demos/quantitative-pipetting.jpg",
+        "src": "/videos/demos/quantitative-pipetting.mp4?v=20260924-144701",
+        "poster": "/videos/demos/quantitative-pipetting.jpg?v=20260924-144701",
         "type": "video/mp4",
-        "width": 1280,
-        "height": 720,
+        "width": 1920,
+        "height": 1080,
         "alt": "InternW0 using a dexterous hand for pipette pickup, tip attachment, liquid transfer, and tip ejection"
       }
     ]

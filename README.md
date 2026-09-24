@@ -17,14 +17,15 @@ InternW0 模型发布主页。保留 A15 模板的蓝色主题、深浅色切换
 | Sort Tubes | `-audio/3.mp4` | `public/videos/demos/sort-tubes.mp4` | 47 秒 |
 | MoF / Flask placement | A004C048_260910WY.mp4 | `public/videos/demos/A004C048_260910WY.mp4` | 53 秒 |
 | MoF / Stopper insertion & stirring | A004C049_260910YW.mp4 | `public/videos/demos/A004C049_260910YW.mp4` | 59 秒 |
-| Quantitative Pipetting | 飞书20260923-194939.qt | `public/videos/demos/quantitative-pipetting.mp4` | 45 秒 |
+| Quantitative Pipetting | `-audio/飞书20260924-144701.mp4` | `public/videos/demos/quantitative-pipetting.mp4` | 45 秒 |
 
-主视频和日常／工业操作三个视频从工作区的 `-audio/` 导入，其余素材来自 `Videos/`；原始素材保持不变。
+主视频、日常／工业操作三个视频和定量移液视频从工作区的 `-audio/` 导入，MoF 素材来自 `Videos/`；原始素材保持不变。
 网页视频使用 H.264。主视频为 1080p、30 fps，保留 AAC 音轨；日常／工业操作三个视频为 1080p、25 fps，均无音轨。
 MoF 两段视频为 1080p、50 fps，保留原有音轨。
-定量移液保留原始 720p、30 fps，从 QuickTime 无损封装为 MP4，未重新编码或裁剪。
+定量移液视频为 1080p，保留来源的 60 fps、完整时长与 AAC 音轨。
 所有视频启用 MP4 faststart、附带 JPEG 封面。网页运行仅依赖本项目的 `public/`，不读取外部素材目录。
 本次替换的四段视频及封面链接带有 `?v=20260924`，避免浏览器复用旧素材缓存。
+定量移液的新视频与封面使用 `?v=20260924-144701`。
 主视频点击播放；六个 Demo 分为日常／工业操作、MoF 和定量移液三组，静音自动循环，并保留播放控件。
 桌面端分别为三列、两列、单列居中，手机端均为单列。
 
